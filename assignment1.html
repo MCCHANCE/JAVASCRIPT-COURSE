@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Tray Project</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="menu">
+        <h2>Menu</h2>
+        <ul>
+            <li><button onclick="addItem('Burger')">Burger - $5</button></li>
+            <li><button onclick="addItem('Pizza')">Pizza - $8</button></li>
+            <li><button onclick="addItem('Salad')">Salad - $6</button></li>
+        </ul>
+    </div>
+    <div class="tray">
+        <h2>Your Tray</h2>
+        <ul id="tray-list">
+        </ul>
+        <h3>Total: $<span id="total">0</span></h3>
+    </div>
+
+    <style>
+            body {
+              font-family: Arial, sans-serif;
+          }
+          
+          .menu, .tray {
+              float: left;
+              width: 45%;
+              padding: 20px;
+          }
+          
+          .menu {
+              border-right: 1px solid #ccc;
+          }
+          
+          ul {
+              list-style-type: none;
+              padding: 0;
+          }
+          
+          button {
+              margin: 5px;
+              padding: 10px;
+          }
+          
+          .tray h2, .menu h2 {
+              margin-top: 0;
+          }
+          
+          .tray h3 {
+              margin-top: 20px;
+          }
+          
+    </style>
+
+    <script>
+              let total = 0;
+
+        function addItem(item) {
+            const trayList = document.getElementById("tray-list");
+            const listItem = document.createElement("li");
+            listItem.textContent = item;
+            trayList.appendChild(listItem);
+
+            // Update total price
+            if (item === 'Burger') {
+                total += 5;
+            } else if (item === 'Pizza') {
+                total += 8;
+            } else if (item === 'Salad') {
+                total += 6;
+            }
+
+            document.getElementById("total").textContent = total;
+        }
+
+    </script>
+</body>
+</html>
