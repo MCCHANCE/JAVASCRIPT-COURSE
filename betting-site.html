@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Betting Site</title>
+</head>
+<body>
+      <h1>Welcome to Betting Site</h1>
+      <div id="bettingOptions">
+          <label for="betAmount">Enter Bet Amount:</label>
+          <input type="number" id="betAmount">
+          <button onclick="placeBet()">Place Bet</button>
+          <div id="outcome"></div>
+      </div>
+
+    <style>
+          body {
+            font-family: Arial, sans-serif;
+        }
+        
+        #bettingOptions {
+            margin-top: 20px;
+        }
+        
+        #outcome {
+            margin-top: 10px;
+            font-weight: bold;
+            color: green;
+        }
+        
+    </style>
+
+    <script>
+      function placeBet() {
+        var betAmount = parseInt(document.getElementById('betAmount').value);
+        var randomNumber = Math.floor(Math.random() * 2); // Generates either 0 or 1
+    
+        if (betAmount <= 0 || isNaN(betAmount)) {
+            document.getElementById('outcome').innerHTML = 'Please enter a valid bet amount.';
+        } else {
+            if (randomNumber === 0) {
+                document.getElementById('outcome').innerHTML = 'You win $' + betAmount;
+            } else {
+                document.getElementById('outcome').innerHTML = 'You lose $' + betAmount;
+            }
+        }
+    }
+    
+    </script>
+</body>
+</html>
